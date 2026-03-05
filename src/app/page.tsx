@@ -1,65 +1,51 @@
 import Image from "next/image";
+import { Caveat } from "next/font/google"; 
+import Specialties from "@/components/Specialties";
+import Hakkimda from "./hakkimda/page";
+import Iletisim from "./iletisim/page";
+
+const caveat = Caveat({ subsets: ["latin"], weight: ["700"] });
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="flex flex-col">
+      {/* 1. BÖLÜM: ANA SAYFA (HERO) */}
+      <section id="ana-sayfa" className="min-h-screen pt-10 pb-20 flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-white to-rose-50/30">
+        <div className="max-w-6xl w-full mx-auto flex flex-col md:flex-row items-center gap-16 px-6">
+          <div className="relative w-full md:w-1/2 flex justify-center animate-fade-in-up">
+            <div className="absolute -top-10 md:-top-16 left-[5%] md:left-[10%] z-30 animate-bounce">
+              <div className="bg-white border-[3px] border-rose-200 px-6 py-3 rounded-md shadow-[4px_4px_0_0_rgba(251,113,133,0.2)] relative flex items-center justify-center rotate-[-4deg]">
+                <span className={`${caveat.className} text-4xl text-rose-400`}>Ben Kimim?</span>
+              </div>
+            </div>
+            
+            <div className="relative w-72 h-96 md:w-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-[12px_12px_0_0_rgba(251,113,133,0.3)] border-4 border-white transition-transform duration-700 hover:scale-[1.02]">
+              <Image src="/sema-aydin.jpg" alt="Sema Aydın" fill className="object-cover" priority />
+            </div>
+          </div>
+          <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left space-y-6">
+            <h2 className="animate-fade-in-up text-rose-400 font-bold tracking-widest uppercase text-xs bg-rose-50 px-4 py-2 rounded-md border border-rose-100 inline-block">
+              Stj. Dkt. Sema Aydın | Anadolu Üniversitesi
+            </h2>
+            <h1 className="animate-fade-in-up animate-delay-100 text-4xl md:text-6xl font-extrabold text-slate-700 leading-tight">
+              Dil ve <br />Konuşma<br /><span className="text-rose-400">Bozuklukları</span>
+            </h1>
+            <p className="animate-fade-in-up animate-delay-200 text-lg text-slate-500 leading-relaxed max-w-lg font-medium">
+              Gelin, bu yolu birlikte yürüyelim.
+            </p>
+            <div className="animate-fade-in-up animate-delay-300">
+              <a href="#hakkimda" className="inline-block bg-rose-400 text-white px-8 py-4 rounded-lg font-bold shadow-[6px_6px_0_0_rgba(251,113,133,0.3)] hover:bg-rose-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[8px_8px_0_0_rgba(251,113,133,0.4)] active:translate-y-1 active:shadow-none">
+                Hakkımda Daha Fazla
+              </a>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      {/* DİĞER BÖLÜMLER BURADA ÇAĞRILIYOR */}
+      <Specialties />
+      <Hakkimda />
+      <Iletisim />
+    </main>
   );
 }
