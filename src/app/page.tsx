@@ -31,7 +31,7 @@ export default function Home() {
               Dil ve <br />Konuşma<br /><span className="text-rose-400">Bozuklukları</span>
             </h1>
             <p className="animate-fade-in-up animate-delay-200 text-lg text-slate-500 leading-relaxed max-w-lg font-medium">
-              Gelin, bu yolu birlikte yürüyelim.
+              Her kelimede güven, her adımda daha güçlü bir iletişim için randevu alabilirsiniz.
             </p>
             <div className="animate-fade-in-up animate-delay-300">
               <a href="#hakkimda" className="inline-block bg-rose-400 text-white px-8 py-4 rounded-lg font-bold shadow-[6px_6px_0_0_rgba(251,113,133,0.3)] hover:bg-rose-500 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[8px_8px_0_0_rgba(251,113,133,0.4)] active:translate-y-1 active:shadow-none">
