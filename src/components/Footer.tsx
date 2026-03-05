@@ -2,8 +2,37 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-800 text-slate-300 py-16 border-t-4 border-rose-400 mt-auto">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+    <footer className="bg-slate-800 text-slate-300 py-16 mt-auto relative">
+      
+      {/* --- ANİMASYONLU ÇİÇEK VE ÇİMEN ŞERİDİ --- */}
+      <div className="absolute bottom-full left-0 w-full h-16 overflow-hidden flex items-end select-none pointer-events-none z-10">
+        <div className="flex whitespace-nowrap text-2xl md:text-3xl items-baseline opacity-90">
+          {Array.from({ length: 30 }).map((_, i) => (
+            <div 
+              key={i} 
+              className="inline-flex items-baseline animate-flower-pop"
+              /* Çiçeklerin soldan sağa dalga dalga büyümesi için dinamik gecikme (delay) ekledik */
+              style={{ animationDelay: `${(i % 15) * 0.15}s` }}
+            >
+              <span className="translate-y-1">🌱</span>
+              <span className="mx-2 -translate-y-2">🌸</span>
+              <span className="text-4xl translate-y-2">🌿</span>
+              <span className="mx-3 -translate-y-1">🌼</span>
+              <span className="translate-y-1">🍃</span>
+              <span className="mx-2 -translate-y-3">🌷</span>
+              <span className="text-4xl translate-y-3 -scale-x-100">🌿</span>
+              <span className="mx-3 -translate-y-1">🌺</span>
+              <span className="translate-y-1">🍀</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Pembe Zemin Çizgisi (Çiçeklerin toprağı) */}
+      <div className="absolute top-0 left-0 w-full h-2 bg-rose-400"></div>
+      {/* ------------------------------------------ */}
+
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 pt-4">
         
         {/* Logo ve Ünvan */}
         <div className="space-y-4">
